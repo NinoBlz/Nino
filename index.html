@@ -1,4 +1,10 @@
-    <script>
+        .contact-item p a {
+            color: var(--text-muted);
+        }
+        
+        .contact-item p a:hover {
+            color: white;
+        }    <script>
         // Fonction pour calculer l'âge en fonction de la date de naissance
         function calculateAge(birthDate) {
             const today = new Date();
@@ -236,6 +242,7 @@
             animation-fill-mode: both;
         }
         
+        /* Hero CTA Button */
         .cta-btn {
             display: inline-block;
             background-color: var(--secondary-color);
@@ -248,7 +255,7 @@
             z-index: 1;
             overflow: hidden;
             letter-spacing: 0.5px;
-            animation: fadeInUp 1s ease-out 0.6s forwards;
+            animation: fadeInUp 1s ease-out 0.6s forwards, pulse 2s infinite 3s;
             animation-fill-mode: both;
             box-shadow: 0 5px 15px rgba(68, 132, 255, 0.3);
         }
@@ -260,19 +267,87 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, var(--secondary-color), #4468ff, var(--secondary-color));
-            background-size: 200% 100%;
-            transition: transform 0.3s ease-in-out;
+            background: linear-gradient(45deg, var(--secondary-color), #4468ff, var(--accent-color), var(--secondary-color));
+            background-size: 300% 300%;
             z-index: -1;
+            transition: transform 0.5s ease;
+            animation: gradientFlow 5s infinite ease-in-out;
         }
         
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(68, 132, 255, 0.4);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(68, 132, 255, 0.5);
+            color: white;
         }
         
         .cta-btn:hover::before {
-            transform: translateX(-50%);
+            transform: translateX(0);
+            animation-play-state: paused;
+        }
+        
+        .cta-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(68, 132, 255, 0.4);
+        }
+        
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .cta-btn:active::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 5px 15px rgba(68, 132, 255, 0.3);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 5px 25px rgba(68, 132, 255, 0.5), 0 0 0 10px rgba(68, 132, 255, 0.05);
+                transform: scale(1.02);
+            }
+            100% {
+                box-shadow: 0 5px 15px rgba(68, 132, 255, 0.3);
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
         }
         
         @keyframes fadeInDown {
@@ -1064,6 +1139,12 @@
             color: var(--secondary-color);
             border-radius: 20px;
             font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-tag:hover {
+            background-color: rgba(68, 132, 255, 0.25);
+            transform: translateY(-2px);
         }
         
         body.modal-open {
@@ -1200,8 +1281,9 @@
             resize: vertical;
         }
         
+        /* Submit Button */
         .submit-btn {
-            background: linear-gradient(to right, var(--secondary-color), #4468ff);
+            background: linear-gradient(45deg, var(--secondary-color), #4468ff);
             color: white;
             border: none;
             padding: 15px 35px;
@@ -1210,7 +1292,7 @@
             font-weight: bold;
             font-size: 16px;
             letter-spacing: 0.5px;
-            transition: all 0.3s;
+            transition: all 0.4s;
             box-shadow: 0 8px 20px rgba(68, 132, 255, 0.3);
             position: relative;
             overflow: hidden;
@@ -1224,19 +1306,64 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, #4468ff, var(--secondary-color), #4468ff);
-            background-size: 200% 100%;
+            background: linear-gradient(45deg, var(--secondary-color), #4468ff, var(--accent-color), #4484ff);
+            background-size: 300% 300%;
             z-index: -1;
-            transition: transform 0.3s ease;
+            animation: gradientFlow 5s infinite ease-in-out;
+            opacity: 0.8;
         }
         
         .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 25px rgba(68, 132, 255, 0.4);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(68, 132, 255, 0.5);
         }
         
         .submit-btn:hover::before {
-            transform: translateX(-50%);
+            opacity: 1;
+        }
+        
+        .submit-btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(68, 132, 255, 0.4);
+        }
+        
+        .submit-btn::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.01%);
+            background-repeat: no-repeat;
+            background-position: 50%;
+            transform: scale(10, 10);
+            opacity: 0;
+            transition: transform .5s, opacity 1s;
+        }
+        
+        .submit-btn:active::after {
+            transform: scale(0, 0);
+            opacity: .3;
+            transition: 0s;
+        }
+        
+        /* Floating glow effect for the submit button */
+        @keyframes glowing {
+            0% { box-shadow: 0 8px 20px rgba(68, 132, 255, 0.3); }
+            50% { box-shadow: 0 8px 25px rgba(68, 132, 255, 0.5), 0 0 20px rgba(68, 132, 255, 0.3); }
+            100% { box-shadow: 0 8px 20px rgba(68, 132, 255, 0.3); }
+        }
+        
+        .form-group:last-child {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .submit-btn {
+            animation: glowing 3s infinite;
         }
         
         /* Footer */
@@ -1285,6 +1412,33 @@
             background-color: var(--secondary-color);
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(68, 132, 255, 0.3);
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
         
         footer p {
