@@ -123,7 +123,70 @@
         box-sizing: border-box;
         transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
     }
-    
+/* Subtle gradient shift for sections */
+.skills, .about, .experience, .education, .projects, .contact {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle background gradient that slowly shifts */
+.subtle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.03;
+    background: radial-gradient(
+        circle at var(--x, 50%) var(--y, 50%), 
+        var(--secondary-color) 0%, 
+        transparent 60%
+    );
+    transition: all 10s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+}
+
+/* Subtle dot pattern background */
+.dot-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Very subtle pulsing glow effect for section borders */
+.section-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+    opacity: 0;
+    animation: subtle-pulse 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes subtle-pulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 0.2; }
+}
+
+/* Media query to disable animations on smaller devices for performance */
+@media (max-width: 768px) {
+    .subtle-bg, .dot-pattern, .section-glow {
+        display: none;
+    }
+}
+
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
@@ -2944,5 +3007,55 @@ if (typeof window.modalSetupComplete === 'undefined') {
 }
 });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add subtle background elements to each section
+        const sections = ['skills', 'about', 'experience', 'education', 'projects', 'contact'];
+        
+        sections.forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                // Add subtle gradient background
+                const subtleBg = document.createElement('div');
+                subtleBg.classList.add('subtle-bg');
+                section.appendChild(subtleBg);
+                
+                // Add dot pattern
+                const dotPattern = document.createElement('div');
+                dotPattern.classList.add('dot-pattern');
+                section.appendChild(dotPattern);
+                
+                // Add section glow
+                const sectionGlow = document.createElement('div');
+                sectionGlow.classList.add('section-glow');
+                section.appendChild(sectionGlow);
+            }
+        });
+        
+        // Very subtle gradient movement on mouse movement
+        document.addEventListener('mousemove', function(e) {
+            // Throttle the update to improve performance
+            if (!window.requestAnimationFrame) return;
+            
+            window.requestAnimationFrame(function() {
+                const subtleBgs = document.querySelectorAll('.subtle-bg');
+                const x = e.clientX / window.innerWidth * 100;
+                const y = e.clientY / window.innerHeight * 100;
+                
+                subtleBgs.forEach(bg => {
+                    // Only update gradient position very slightly (10% of mouse movement)
+                    const currentX = parseFloat(bg.style.getPropertyValue('--x') || 50);
+                    const currentY = parseFloat(bg.style.getPropertyValue('--y') || 50);
+                    
+                    const newX = currentX + (x - currentX) * 0.03;
+                    const newY = currentY + (y - currentY) * 0.03;
+                    
+                    bg.style.setProperty('--x', `${newX}%`);
+                    bg.style.setProperty('--y', `${newY}%`);
+                });
+            });
+        });
+    });
+    </script>
 </body>
 </html>
