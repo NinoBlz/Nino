@@ -1,10 +1,6 @@
-        .contact-item p a {
-            color: var(--text-muted);
-        }
+
         
-        .contact-item p a:hover {
-            color: white;
-        }    <script>
+   <script>
         // Fonction pour calculer l'âge en fonction de la date de naissance
         function calculateAge(birthDate) {
             const today = new Date();
@@ -37,37 +33,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateAge();
         });
-    </script>        .contact-link {
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: all 0.3s;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .contact-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: var(--secondary-color);
-            transition: width 0.3s ease;
-        }
-        
-        .contact-link:hover {
-            color: var(--accent-color);
-        }
-        
-        .contact-link:hover::after {
-            width: 100%;
-        }        .timeline-content .btn-view-details,
-        .education-item .btn-view-details {
-            margin-top: 15px;
-            font-size: 13px;
-            padding: 8px 18px;
-        }<!DOCTYPE html>
+    </script> 
+        <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -1524,6 +1491,52 @@
                 padding: 15px;
             }
         }
+
+                
+        /* Contact item links */
+        .contact-item p a {
+            color: var(--text-muted);
+        }
+        
+        .contact-item p a:hover {
+            color: white;
+        }
+        
+        /* Contact links styling */
+        .contact-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--accent-color);
+        }
+        
+        .contact-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Button styling */
+        .timeline-content .btn-view-details,
+        .education-item .btn-view-details {
+            margin-top: 15px;
+            font-size: 13px;
+            padding: 8px 18px;
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
 </head>
@@ -2633,5 +2646,196 @@
             <p>&copy; 2025 Nino Beluze. Tous droits réservés.</p>
         </div>
     </footer>
+
+    <!-- Add this code right before the closing </body> tag -->
+
+<!-- Project Modals -->
+<div class="modal" id="modal-eeprom">
+    <div class="modal-content">
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+        <div class="modal-header">
+            <h2>Reprogrammateur d'EEPROM</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">M5Stack</span>
+                <span class="tech-tag">ESP32</span>
+                <span class="tech-tag">OneWire</span>
+                <span class="tech-tag">C++</span>
+            </div>
+        </div>
+        <div class="modal-body">
+            <p>Projet de fin d'année de BTS réalisé en partenariat avec ADLC pour TCL (Transports en Commun Lyonnais).</p>
+            
+            <h3>Objectif du projet</h3>
+            <p>Développer un système portable et facile d'utilisation permettant de reprogrammer les mémoires EEPROM des équipements embarqués dans les transports en commun lyonnais.</p>
+            
+            <h3>Technologies utilisées</h3>
+            <ul>
+                <li>Plateforme M5Stack basée sur ESP32</li>
+                <li>Protocole de communication OneWire</li>
+                <li>Développement C++ pour systèmes embarqués</li>
+                <li>Interface homme-machine personnalisée</li>
+            </ul>
+            
+            <h3>Fonctionnalités développées</h3>
+            <ul>
+                <li>Interface utilisateur intuitive sur écran tactile</li>
+                <li>Communication sécurisée avec les mémoires EEPROM</li>
+                <li>Vérification d'intégrité des données</li>
+                <li>Sauvegarde et restauration de configurations</li>
+                <li>Gestion des erreurs et diagnostic</li>
+            </ul>
+            
+            <h3>Résultats et impact</h3>
+            <p>Ce projet a permis d'optimiser significativement le processus de maintenance des équipements TCL en réduisant le temps d'intervention et en améliorant la fiabilité des opérations de programmation. La solution est actuellement utilisée par les techniciens de maintenance sur le terrain.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-robocup">
+    <div class="modal-content">
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+        <div class="modal-header">
+            <h2>Robocup @Home</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Robotique</span>
+                <span class="tech-tag">ROS</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Vision par ordinateur</span>
+            </div>
+        </div>
+        <div class="modal-body">
+            <p>Participation aux compétitions internationales Robocup 2023 à Bordeaux et Robocup 2024 à Eindhoven dans la ligue @Home avec l'équipe Lyontech de CPE Lyon.</p>
+            
+            <h3>Contexte du projet</h3>
+            <p>La ligue @Home de la Robocup se concentre sur le développement de robots domestiques capables d'assister les humains dans leur environnement quotidien. L'objectif est de créer des robots autonomes pouvant interagir naturellement avec les utilisateurs et accomplir diverses tâches ménagères.</p>
+            
+            <h3>Ma contribution</h3>
+            <ul>
+                <li>Développement de modules électroniques pour la détection d'objets</li>
+                <li>Optimisation des algorithmes de navigation</li>
+                <li>Amélioration des mécanismes de préhension</li>
+                <li>Configuration des capteurs et calibration</li>
+                <li>Tests et validation des fonctionnalités en conditions réelles</li>
+            </ul>
+            
+            <h3>Technologies utilisées</h3>
+            <ul>
+                <li>Framework ROS (Robot Operating System)</li>
+                <li>Programmation Python pour l'intelligence artificielle</li>
+                <li>Systèmes de vision par ordinateur et reconnaissance d'objets</li>
+                <li>Capteurs LIDAR et caméras de profondeur</li>
+                <li>Actionneurs et systèmes mécaniques</li>
+            </ul>
+            
+            <h3>Compétences développées</h3>
+            <p>Cette expérience m'a permis d'approfondir mes connaissances en robotique appliquée, en travail collaboratif sur des systèmes complexes et en résolution de problèmes techniques sous contrainte de temps lors des compétitions.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-plantkeeper">
+    <div class="modal-content">
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+        <div class="modal-header">
+            <h2>Plant Keeper</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">IoT</span>
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">ESP8266</span>
+                <span class="tech-tag">Capteurs</span>
+            </div>
+        </div>
+        <div class="modal-body">
+            <p>Système d'arrosage intelligent développé au FabLab IDIoTsLab pour surveiller et maintenir automatiquement la santé des plantes.</p>
+            
+            <h3>Objectifs du projet</h3>
+            <p>Créer un système autonome capable de surveiller l'état des plantes (humidité du sol, température, luminosité) et d'intervenir automatiquement pour maintenir des conditions optimales de croissance, tout en permettant une surveillance à distance.</p>
+            
+            <h3>Fonctionnalités développées</h3>
+            <ul>
+                <li>Mesure continue de l'humidité du sol par capteurs résistifs</li>
+                <li>Surveillance de la température et de la luminosité ambiantes</li>
+                <li>Système d'arrosage automatique à déclenchement intelligent</li>
+                <li>Interface Web pour le monitoring et le contrôle à distance</li>
+                <li>Notifications en cas de conditions anormales</li>
+                <li>Fonctionnement sur batterie avec panneau solaire pour recharge</li>
+            </ul>
+            
+            <h3>Technologies utilisées</h3>
+            <ul>
+                <li>Microcontrôleur ESP8266 pour la connectivité WiFi</li>
+                <li>Plateforme Arduino pour le développement</li>
+                <li>Capteurs d'humidité du sol, température et luminosité</li>
+                <li>Système de pompes à eau miniaturisées</li>
+                <li>Base de données pour le suivi historique des données</li>
+            </ul>
+            
+            <h3>Résultats et perspectives</h3>
+            <p>Le projet a été implémenté avec succès et est actuellement utilisé au sein du FabLab pour maintenir diverses plantes. Il sert également de support pédagogique pour les ateliers d'initiation à l'IoT et aux systèmes embarqués.</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-trottinette">
+    <div class="modal-content">
+        <button class="modal-close"><i class="fas fa-times"></i></button>
+        <div class="modal-header">
+            <h2>Réparation Trottinette Électrique</h2>
+            <div class="tech-stack">
+                <span class="tech-tag">Électronique</span>
+                <span class="tech-tag">Diagnostic</span>
+                <span class="tech-tag">Batterie</span>
+                <span class="tech-tag">Motorisation</span>
+            </div>
+        </div>
+        <div class="modal-body">
+            <p>Projet personnel de réparation et d'amélioration d'une trottinette électrique défectueuse.</p>
+            
+            <h3>Problématique</h3>
+            <p>Remettre en état une trottinette électrique présentant plusieurs dysfonctionnements (autonomie réduite, performances dégradées, problèmes de contrôleur) tout en améliorant certains aspects pour optimiser ses performances.</p>
+            
+            <h3>Diagnostic et réparations</h3>
+            <ul>
+                <li>Analyse complète des circuits électroniques et identification des composants défectueux</li>
+                <li>Réparation du contrôleur principal (remplacement de MOSFETs et reconfiguration)</li>
+                <li>Reconditionnement du pack batterie avec remplacement des cellules défaillantes</li>
+                <li>Optimisation du système de refroidissement pour le contrôleur</li>
+                <li>Amélioration du câblage et des connecteurs pour une meilleure fiabilité</li>
+            </ul>
+            
+            <h3>Améliorations apportées</h3>
+            <ul>
+                <li>Installation d'un système de surveillance de batterie plus précis</li>
+                <li>Optimisation du firmware pour une meilleure gestion de l'énergie</li>
+                <li>Ajout d'un affichage LED pour le niveau de batterie</li>
+                <li>Renforcement de la structure pour une meilleure durabilité</li>
+            </ul>
+            
+            <h3>Compétences mises en œuvre</h3>
+            <p>Ce projet a mobilisé mes compétences en diagnostic électronique, en réparation de circuits, en gestion de batteries lithium-ion et en programmation de microcontrôleurs. Il m'a également permis d'approfondir ma compréhension des systèmes de propulsion électrique.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+// Replace the duplicate modal close event listeners with this script
+document.addEventListener('DOMContentLoaded', function() {
+    // Clear any potentially duplicate event listeners
+    const modalCloseButtons = document.querySelectorAll('.modal-close');
+    const modals = document.querySelectorAll('.modal');
+    
+    modalCloseButtons.forEach(button => {
+        // Remove existing listeners by cloning and replacing
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+    });
+    
+    // Ensure setupModalButtons is only called once
+    if (typeof window.modalSetupComplete === 'undefined') {
+        setupModalButtons();
+        window.modalSetupComplete = true;
+    }
+});
+</script>
 </body>
 </html>
